@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/histogram.dir/histogram.cpp.o -o histogram 

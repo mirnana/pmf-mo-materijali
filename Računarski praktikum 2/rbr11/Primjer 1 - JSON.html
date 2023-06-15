@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Primjer 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <p id="p1">Objekt studenti konvertiran u JSON string: </p>
+    <p id="p2">Objekt dobiven parsiranjem JSON stringa: </p>
+
+    <script>
+$( document ).ready( function()
+{
+    // Napravimo neki JavaScript objekt
+    var studenti = [
+        {
+            JMBAG: "1234567890",
+            ime: "Pero Perić",
+            ocjene: [5, 3, 2],
+            datumRodjenja: new Date( 1994, 1, 1 )
+        },
+        {
+            JMBAG: "0987654321",
+            ime: "Ana Anić",
+            ocjene: [2, 4],
+            datumRodjenja: new Date( 1995, 5, 5 )
+        } ];
+
+    // Konvertiramo JavaScript objekt u JSON string
+    var jsonStudenti = JSON.stringify( studenti );
+
+    // Ispišemo ga na web-stranicu
+    $( "#p1" ).append( jsonStudenti 
+        + "<br />Tip varijable jsonStudenti je: " + typeof( jsonStudenti ) );
+
+    // Sad iz JSON stringa rekonstruiramo JavaScript objekt: s će biti kopija objekta studenti
+    var s = JSON.parse( jsonStudenti, function( key, value ) 
+    {
+        // Funkcija je potrebna samo da bi se string reprezentacija datuma konvertirala u tip Date
+        if( key === "datumRodjenja" )
+            return new Date( value );
+        else
+            return value;
+    } );
+
+
+    // Ispišemo članove dobivenog objekta na web-stranicu
+    $( "#p2" ).append ( 
+        "<br />JMBAG: " + s[0].JMBAG + " ime: " + s[0].ime + " godina rođenja: " + s[0].datumRodjenja.getFullYear() +
+        "<br />JMBAG: " + s[1].JMBAG + " ime: " + s[1].ime + " godina rođenja: " + s[1].datumRodjenja.getFullYear() );
+} );
+
+    </script>
+</body>
+</html>

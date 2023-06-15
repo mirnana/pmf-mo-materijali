@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 7 - Julia set, sa workerom</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">1</button>
+    <canvas width="1000" height="700" id="cnv"></canvas>
+    <script>
+
+var ctx = null, xSize = null, ySize = null;
+var nWorkers = 4, chunk = 100;
+
+$( document ).ready( function() 
+{
+    $( "#btn" ).on( "click", function() 
+    {
+        var n = Number( $( this ).html() );
+        $( this ).html( n+1 );
+    } );
+
+    xSize = $( "#cnv" ).width();
+    ySize = $( "#cnv" ).height(); 
+    ctx = $( "#cnv" ).get(0).getContext( "2d" );
+
+    // Svaki worker izračunava dio slike (chunk redaka)
+    // i kad ga izračuna, pošalje ga glavnom treadu koji ga nacrta.
+    for( var yStart = 0, iWorker = 0; yStart < ySize && iWorker < nWorkers; yStart += chunk, ++iWorker )
+    {
+        worker = new Worker( "07 - Julia set.js" );
+    
+        worker.onmessage = function(e) 
+        {
+            // Dobije poruku e.data oblika { yStart: ..., pixelRow: ... }
+            // pixelRow predstavlja chunk redaka pixela.
+            // Te retke zapišemo na koordinate (0, e.data.yStart)
+            ctx.putImageData( e.data.pixelRow, 0, e.data.yStart );
+
+            if( yStart < ySize )
+            {
+                // Ako nismo došli do dna slike, proslijedi novih chunk redaka workeru na izračunavanje.
+                if( yStart + chunk > ySize )
+                    chunk = ySize - yStart;
+
+                // pixelRow je objekt koji sadrži polje data.
+                // Polje pixelRow.data čuva informacije o svakom pixelu u nekom pravokutniku, redom po 4 elementa polja za svaki pixel.
+                // pixelRow.data[4*xSize*y + 4*x] je intenzitet plave boje pixela (x, y).
+                // pixelRow.data[4*xSize*y + 4*x+1] je intenzitet crvene boje pixela (x, y).
+                // pixelRow.data[4*xSize*y + 4*x+2] je intenzitet zelene boje pixela (x, y).
+                // pixelRow.data[4*xSize*y + 4*x+3] je alpha kanal (prozirnost) pixela (x, y).
+                // Objekt pixelRow ćemo poslati Workeru da ga popuni za chunk redaka slike.
+                var pixelRow = ctx.getImageData( 0, yStart, xSize, chunk );
+                this.postMessage( { yStart: yStart, yEnd: yStart+chunk, xSize: xSize, ySize: ySize, pixelRow: pixelRow } );
+                yStart += chunk;
+            }
+        }
+
+        var pixelRow = ctx.getImageData( 0, yStart, xSize, chunk );
+        worker.postMessage( { yStart: yStart, yEnd: yStart+chunk, xSize: xSize, ySize: ySize, pixelRow: pixelRow } );
+    }
+} );
+
+</script>
+</body>
+</html>

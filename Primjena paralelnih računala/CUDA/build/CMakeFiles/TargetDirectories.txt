@@ -1,0 +1,2 @@
+/.home/student1/imrovmir/PPR/CUDA/build/CMakeFiles/edit_cache.dir
+/.home/student1/imrovmir/PPR/CUDA/build/CMakeFiles/rebuild_cache.dir

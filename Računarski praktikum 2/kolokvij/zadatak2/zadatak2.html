@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Naslov</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+</head>
+<body>
+
+    <canvas width="600" height="600" > tekst za svaki slučaj</canvas>
+
+    Prikaži raspored u učionici:
+    <select id="ucionice"></select>
+    
+    
+    
+    <script>
+        $( document ).ready( function() {
+
+            $.ajax({
+                url: "zadatak2.php",
+                data: { sve : "daj ucionice" },
+                dataType: "json",
+                success: function(data) {
+                    $("#ucionice").html(data);
+                    /* console.log("here");
+                    let ucionice = data;    // data bi trebao biti array
+                    for(const d of data) {
+                        console.log(d['naziv']);
+                        $("#ucionice").append("<option>").attr("id", d['naziv']).html(d['naziv']);
+                    } */
+                },
+                error: function(xhr, status) {
+                    if( status !== null )
+                        console.log( "Greška prilikom Ajax poziva: " + status );
+                }
+            });
+
+            let ctx = $("#ucionice").get(0).getContext("2d");
+
+            $("#ucionice option").on("click", function(){
+                let koja = $(this).val();
+                let x = -1, y = -1;
+                $.ajax({
+                    url: "zadatak2.php",
+                    data: { jedna: koja},
+                    dataType: "json",
+                    success: function(data) {
+                        let nrows = data['x'], ncols = data['y'];
+                        let studenti = data['studenti'];
+                        nacrtaj(nrows, ncols, studenti);
+                    }
+                });
+            });
+
+        });
+
+        function nacrtaj(ctx, nrows, ncols, studenti) {
+            for(let i = 0; i < nrows; i++) {
+                for(let j = 0; j , ncols; j++) {
+                    for(const stud of studenti) {
+                        if(stud[1][1] == i && stud[1][2] == j)
+                            pravokutnik(ctx, nrows, ncols, i, j, "gray");
+                        else pravokutnik(ctx, nrows, ncols, i, j, "white");
+                    }
+                }
+            }
+        }
+
+        function pravokutnik(ctx, nrows, ncols, i, j, color) {
+            ctx.beginPath()
+            ctx.fillStyle = color;
+            let x = i * 600 / (20 * nrows);
+            // klupa je dimenzija 20 * 30 i crtamo ju u onom redu i stupcu di treba
+            let y = j * 600 / (30 * ncols);
+            ctx.fillRect(x, y, 30, 20);
+        }
+    </script>
+
+
+</body>
+</html>

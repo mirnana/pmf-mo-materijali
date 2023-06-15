@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 9 - IndexedDB</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    JMBAG:   <input type="text" id="jmbag" /><br />
+    ime:     <input type="text" id="ime" /><br />
+    starost: <input type="text" id="starost" /><br />
+    e-mail:  <input type="text" id="email" /><br />
+    <button id="btn">Dodaj u bazu!</button>
+
+    <h2>Nađi email za upisani JMBAG</h2>
+    <button id="btnNadji">Nađi email!</button>
+    <input type="text" id="txtNadji" />
+    <span id="spanNadji"></span>
+
+    <h2>Popis studenata:</h2>
+    <table>
+        <thead><tr><th>jmbag</th><th>ime</th><th>starost</th><th>email</th></tr></thead>
+        <tbody id="popis"></tbody>
+    </table>
+
+
+    <script>
+/*
+    Zelimo stvoriti bazu podataka u kojoj cemo cuvati info o studentima, npr. kao u ovoj varijabli:
+    studenti = [
+      { jmbag: "1234567890", ime: "Pero", starost: 21, email: "pero@student.math.hr" },
+      { jmbag: "5555555555", ima: "Ana",  starost: 22, email: "ana@gmail.com" }
+    ];
+*/
+
+// Otvori novu ili postojecu bazu, parametri: ime baze, verzija
+var request = indexedDB.open( "pmf-mo", 1 ), db;
+
+request.onerror = function(e) 
+{
+    // Aktivira se ako otvaranje ne uspije
+    console.log( e );
+};
+
+
+request.onsuccess = function(e) 
+{
+    // Aktivira se ako baza vec postoji i otvaranje ili upgrade uspije
+    console.log( "indexedDB.open :: onsuccess" );
+
+    // Dohvatimo bazu, ispisemo popis "tablica" (object storeova)
+    db = e.target.result;
+    console.log( "Popis object storeova: " );
+    console.log( db.objectStoreNames );
+
+    // Ispisi sve studente u bazi
+    napraviPopis();
+}
+
+
+request.onupgradeneeded = function(e) 
+{
+    // Aktivira se prilikom stvaranja nove (verzije) baze
+    console.log( "indexedDB.open :: onupgradeneeded" );
+
+    // Dohvatimo bazu, ispisemo popis "tablica" (object storeova)
+    db = e.target.result;
+    console.log( "Popis object storeova: " );
+    console.log( db.objectStoreNames );
+
+    // Kreiramo objectStore koji ce drzati informacije o studentima.
+    // "jmbag" ce biti kljuc jer jedinstveno odredjuje studenta.
+    // db.deleteObjectStore( "studenti" );
+    // console.log( "deleteObjectStore" );
+
+    var objectStore = db.createObjectStore( "studenti", { keyPath: "jmbag" } );
+    console.log( "createObjectStore" );
+
+    // Kreiramo index za pretrazivanje po imenu.
+    // Vise studenata moze imati isto ime => unique: false
+    // Prvi parametar: ime indexa, drugi parametar: naziv kljuca za pretrazivanje
+    objectStore.createIndex( "ime", "ime", { unique: false } );
+    console.log( "createIndex" );
+
+    // Kreiramo index za pretrazivanje po emailu.
+    // email je jedinstven za studenta => unique: true
+    objectStore.createIndex( "email", "email", { unique: true } );
+    console.log( "createIndex" );
+};
+
+
+$( "#btn" ).on( "click", function() 
+{
+    // Dodavanje novog studenta u bazu
+    var student = {
+        jmbag   : document.getElementById( "jmbag" ).value,
+        ime     : document.getElementById( "ime" ).value,
+        starost : document.getElementById( "starost" ).value,
+        email   : document.getElementById( "email" ).value
+    };
+
+    // Kreiram "readwrite" transakciju kojom cu dodati studenta
+    // U transakciji sudjeluje objectStore "studenti".
+    var transaction = db.transaction( ["studenti"], "readwrite" );
+
+    // Dohvati objectStore iz transakcije
+    var objectStore = transaction.objectStore( "studenti" );
+
+    // Dodaj studenta u objectStore
+    var request = objectStore.add( student );
+
+    // Updateaj popis svih studenata
+    napraviPopis();
+} );
+
+
+function napraviPopis() 
+{
+    // Prvo izbrisi sve s popisa u tablici
+    var tbl = $( "#popis" );
+    tbl.html( "" );
+
+    // Kreiram transakciju kojom cu dohvatiti sve studente
+    // U transakciji sudjeluje objectStore "studenti".
+    var objectStore = db.transaction("studenti").objectStore("studenti");
+    
+    // Napravi "kursor" za iteriranje po svim objektima iz objectStorea
+    var cursor = objectStore.openCursor();
+
+    cursor.onsuccess = function(e) 
+    {
+        var cursor = e.target.result;
+        if( cursor ) 
+        {
+            tbl.append( 
+                "<tr>"
+                + "<td>" + cursor.key + "</td>"
+                + "<td>" + cursor.value.ime + "</td>"
+                + "<td>" + cursor.value.starost + "</td>"
+                + "<td>" + cursor.value.email + "</td>"
+                + "</tr>"
+            );
+    
+            cursor.continue();
+        };
+    }
+}
+
+
+$( "#btnNadji" ).on( "click", function() 
+{
+    var jmbag = $( "#txtNadji" ).val();
+
+    // Zapocni transakciju na objectStoreu studenti 
+    var transaction = db.transaction( ["studenti"] );
+    var objectStore = transaction.objectStore( "studenti" );
+
+    // Zatrazi element u objectStoreu s odgovarajucim kljucem
+    var request = objectStore.get( jmbag );
+
+    request.onerror = function(e) 
+    {
+        $( "#spanNadji" ).html( "Doslo je do greske..." );
+    };
+
+    request.onsuccess = function() 
+    {        
+        $( "#spanNadji" ).html
+        (
+            request.result 
+                ? "E-mail je: " + request.result.email
+                : "Nema takvog studenta"
+        );
+    };
+} );
+
+    </script>
+</body>
+</html>

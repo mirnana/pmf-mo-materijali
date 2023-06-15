@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/mc.dir/mc.cpp.o -o mc 

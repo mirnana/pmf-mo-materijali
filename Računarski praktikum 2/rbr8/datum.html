@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+</head>
+
+<body>
+
+    <script>
+        
+        let vrijeme = new Date();
+
+        let dan = vrijeme.getDate();
+        
+        let mjeseci = new Array();
+        mjeseci.push("siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja", "srpnja", "kolovoza", "rujna", "listopada", "studenoga", "prosinca");
+
+        let mjesec = mjeseci[vrijeme.getMonth()];
+
+        let godina = vrijeme.getFullYear();
+
+        let sat = vrijeme.getHours();
+
+        document.write("Danas je " + dan + ". " + mjesec + " " + godina + ". ");
+        document.write("<br>");
+        document.write("Trenutno je " + sat + ":" + vrijeme.getMinutes() + ":" + vrijeme.getSeconds() + " sati.");
+        document.write("<br>");
+        if(sat <= 12) document.write("Dobro jutro!");
+        else if(sat <= 18) document.write("Dobar dan!");
+        else document.write("Dobra večer!");
+    </script>
+
+</body>
+
+</html>

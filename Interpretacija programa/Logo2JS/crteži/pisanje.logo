@@ -1,0 +1,17 @@
+pu  fd  100
+
+repeat 9 [
+pu  fd 80  pd  bk 80  rt 90  fd 50
+pu   fd 6
+
+pd   repeat 2 [fd 50   lt 90   fd 80   lt 90]
+pu   fd 56
+
+lt 90   fd 80   rt 90   fd 50   pd   bk 50   lt 90   bk 80  rt 90   fd 50
+lt 90   fd 40   lt 90   fd 20
+pu   bk 20   rt 90   bk 40   rt 90   fd 6
+
+pd   repeat 2 [fd 50   lt 90   fd 80   lt 90]
+
+pu  rt 90  fd 10  lt 60
+]

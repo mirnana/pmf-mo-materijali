@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+</head>
+
+<body>
+
+    <script>
+        let str = prompt("Unesi string cije podstringove zelis vidjeti");
+
+        function rek(s, i, sub) {
+            let slovo = s[i];
+
+            if(i == s.length) {
+                document.write(sub);
+                document.write("<br>");
+                return;
+            }
+
+            //ako slovo uzimamo u podstring:
+            rek(s, i + 1, sub + slovo);
+
+            //ako slovo NE uzimamo u podstring:
+            rek(s, i + 1, sub);
+        }
+
+        rek(str, 0, "");
+
+        document.write("test da se ispisao i prazni string");
+        // druga ideja za rješenje: bitmaska! za svaki int od 0 do 2^str.length maskiramo str s tim intom
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/compare_exchange.dir/compare_exchange.cpp.o -o compare_exchange  -lpthread 

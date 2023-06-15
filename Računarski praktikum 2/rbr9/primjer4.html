@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+
+<input type="button" value="Klikni me" id="btn1" />
+<input type="button" value="Klikni" id="btn2" />
+
+<script>
+	$(document).ready( function() 
+	{
+		// Kad se dogodi "click" na btn1, izvršit će se anonimna funkcija.
+		$( "#btn1" ).on( 
+			"click", 
+			function() { alert( "Klik na button na kojem piše " + $(this).prop( "value" ) ); }	
+		)
+
+		// Kad se dogodi "click" na btn2, izvršit će se funkcija handler.
+		$( "#btn2" ).on( "click", handler );
+	} );
+
+    function handler() { alert( "Klik na button na kojem piše " + $(this).val() ); }
+</script>
+
+</body>
+</html>

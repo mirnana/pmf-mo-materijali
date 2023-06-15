@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        html{ height: 100%;}
+        body{ min-height: 100%; margin: 0;}
+    </style>
+</head>
+
+<body>
+    <p id="koord"></p>
+    <p id="klik"></p>
+    <button id="btn">ULOVI ME</button>
+
+    <script>
+        $(document).ready(function() {
+            $("body").on("mousemove", function(event) {
+                $("#koord").html("Koordinate miša su: (" + event.clientX + ", " + event.clientY + ")");
+            });
+            
+            $("body").on("mousedown", function(event) {
+                let tipka = null;
+                if(event.button === 0) tipka = "lijeva";
+                else if (event.button === 1) tipka = "srednja";
+                else if (event.button === 2) tipka = "desna";
+                $("#klik").html("Klik na " + tipka);
+            });
+
+            $("#btn").on("mouseover", function(event) {
+                let w = $("body").width();
+                let h = $("body").height();
+                let x = Math.random() * w;
+                let y = Math.random() * h;
+
+                $(this)
+                    .css("position", "absolute")
+                    .css("top", y)
+                    .css("left", x);
+            })
+        });
+    </script>
+</body>
+
+</html>

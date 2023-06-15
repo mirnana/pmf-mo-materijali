@@ -1,0 +1,4 @@
+repeat 46 [
+    repeat 4 [ fd 150 lt 89 ]
+    lt 93
+]

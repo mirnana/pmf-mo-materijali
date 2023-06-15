@@ -1,0 +1,22 @@
+Ispod navodim rezultate pokretanja programa na jednom, odnosno na 24 threada:
+
+-------------------------------------------------------
+imrovmir@prosper:~$ g++ -fopenmp main.cpp 
+
+imrovmir@prosper:~$ OMP_NUM_THREADS=1 ./a.out 5000000
+# elements = 5000000
+Sortiram 10 nizova zaredom
+Nizovi su sortirani: true
+Prosječno vrijeme izvršavanja paralelnog koda: 1.30962
+Prosječno vrijeme izvršavanja serijskog koda: 0.0870176
+
+imrovmir@prosper:~$ OMP_NUM_THREADS=24 ./a.out 5000000
+# elements = 5000000
+Sortiram 10 nizova zaredom
+Nizovi su sortirani: true
+Prosječno vrijeme izvršavanja paralelnog koda: 0.394184
+Prosječno vrijeme izvršavanja serijskog koda: 0.0880056
+-------------------------------------------------------
+
+Stoga ubrzanje otprilike računamo kao:
+(0.0870176 + 1.30962) / (0.0880056 + 0.394184) = 2.896146

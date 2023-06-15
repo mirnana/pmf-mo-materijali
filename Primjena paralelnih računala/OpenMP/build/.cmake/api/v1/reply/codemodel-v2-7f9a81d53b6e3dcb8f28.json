@@ -1,0 +1,177 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "openmp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dot::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dot-Debug-a3a4dcde590d0d564154.json",
+					"name" : "dot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hello_world::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hello_world-Debug-b346cb567cb5eeae3226.json",
+					"name" : "hello_world",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "histogram::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-histogram-Debug-c9327e0ddc2bc689f869.json",
+					"name" : "histogram",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "histogram_critical::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-histogram_critical-Debug-2362ebe087db11bede97.json",
+					"name" : "histogram_critical",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "list::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-list-Debug-1efb86c765b91be0d6cd.json",
+					"name" : "list",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mat_vec::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mat_vec-Debug-e85488683df1a61c1195.json",
+					"name" : "mat_vec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mc-Debug-d4a303ffacb73d272058.json",
+					"name" : "mc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pi-Debug-238fc532559d5e2b981e.json",
+					"name" : "pi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "quicksort::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-quicksort-Debug-3f91a8ab50fcb28d5afe.json",
+					"name" : "quicksort",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "race::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-race-Debug-6f8afb90b4921ebcf3fa.json",
+					"name" : "race",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "race_atomic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-race_atomic-Debug-249b4f490eae6cafb2a9.json",
+					"name" : "race_atomic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sum-Debug-875eeb806f9bbcb1e473.json",
+					"name" : "sum",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "task_intro::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-task_intro-Debug-e7ac36588cb2dedcd3ee.json",
+					"name" : "task_intro",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tokenizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tokenizer-Debug-1ad5740b32c3e5bd8e1a.json",
+					"name" : "tokenizer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/.home/student1/imrovmir/PPR/OpenMP/build",
+		"source" : "/.home/student1/imrovmir/PPR/OpenMP"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>">
+
+</head>
+
+<body>
+    <p>Prvi paragrav žuto</p>
+    <p>Drugi ništa</p>
+    <p>Treći crveno</p>
+    <p>crveno i žuto</p>
+    
+    
+    <script>
+        $(document).ready(function() {
+            let ps = $('p');
+            for(let i = 0; i < ps.length; ++i) {
+                let p = ps.eq(i);
+                let p_text = p.html();
+                let re = /crveno/;
+                if(re.test(p_text)) p.css('color', 'red');
+                if(/žuto/.test(p_text)) p.css('background-color', 'yellow');
+            }
+        }
+        );
+    </script>
+    
+    
+
+</body>
+
+</html>

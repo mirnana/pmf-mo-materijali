@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+</head>
+
+<body>
+
+    <script>
+        let N = prompt("Unesi broj");
+        N = Number(N);
+
+        document.write("<table style='border-style: solid; border-collapse: collapse;' >");
+        for(let i = 0; i <= N; i++) {
+            document.write("<tr style='border-style: solid;' >");
+            for(let j = 0; j <= N; j++) {
+                document.write("<td style='border-style: solid;' >");
+                if(i === 0) {
+                    if(j === 0) document.write("*");
+                    else document.write(j);
+                }
+                else if(j === 0) document.write(i);
+                else document.write(i * j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+
+</body>
+
+</html>

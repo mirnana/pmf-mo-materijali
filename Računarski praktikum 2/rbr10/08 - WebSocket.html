@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 8 - WebSocket</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <button id="spoji">Spoji se na echo.websocket.org</button><br />
+    Status: <span id="status">nespojen</span><br />
+    <input type="text" id="poruka" />
+    <button id="posalji" disabled>Pošalji poruku</button><br />
+    Odgovor servera: <span id="odgovor"></span>
+
+    <script>
+$( document ).ready( function() 
+{
+    var socket = null;
+
+    $( "#spoji" ).on( "click", function() 
+    {
+        socket = new WebSocket( "ws://echo.websocket.org/" );
+
+        socket.onopen = function() { $( "#status" ).html( "spojen" ); $( "#posalji" ).prop( "disabled", false ); }
+        socket.onerror = function() { $( "#status" ).html( "greška" ); }
+        socket.onmessage = function(e) { $( "#odgovor" ).html( e.data ); }        
+    } );
+
+    $( "#posalji" ).on( "click", function() 
+    {
+        socket.send( $( "#poruka" ).val() );
+    } );
+} );
+        </script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <canvas height="600" width="600" id="canvas"></canvas>
+
+    <script>    
+$( document ).ready( crtaj );
+
+function crtaj() 
+{
+    // get(0) radi sljedeće:
+    // - iz jQuery kolekcije $( "#canvas" ) vraća prvi po redu HTML objekt.
+    // (Kolekcija se u ovom slučaju i sastoji samo od jednog HTML objekta.)
+    // Razlika u odnosu na $( "#canvas" ).at(0) je ta što .at(0) vraća ponovno jQuery objekt (a ne HTML).
+    // Ekvivalentno: $( "#canvas" )[0].getContext( "2d" );
+    var ctx = $( "#canvas" ).get(0).getContext( "2d" );
+
+    ctx.strokeStyle = "rgb(150, 150, 150)"; ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo( 0, 500 );
+    ctx.lineTo( 100, 500 );
+    ctx.arc( 100, 500, 100, -Math.PI/2, 0, false );
+    ctx.lineTo( 300, 500 );
+    ctx.stroke();
+
+    for( var x = 0; x < 10; ++x )
+        for( var y = 0; y < 10; ++y )
+        {
+            ctx.fillStyle = "rgb(" + x*20 + ", 0, " + y*20 + ")";
+            ctx.fillRect( x*30, y*30, 30, 30 );
+        }
+
+    ctx.font = "72px Arial";
+    ctx.fillText( "Hello", 400, 400 );
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 
+        Google Maps sada zahtjeva registraciju i kreditnu karticu (iako je i dalje besplatan ako je broj prikazivanja mape malen).
+        Svaki poziv Google Maps API sada zahtijeva da proslijedimo registracijski ključ.
+        U ovom primjeru koristimo besplatnu alternativu: OpenLayers (https://openlayers.org).
+    -->
+    <meta charset="utf8" />
+    <title>Primjer 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
+    <style>
+        #mapa { width: 500px; height: 500px; }
+    </style>
+</head>
+<body>
+    <p><button id="btn">Gdje sam?</button></p>
+    <div id="lokacija"></div>
+    <div id="mapa"></div>
+
+    <script>    
+$( document ).ready( function() 
+{
+    $( "#btn" ).on( "click", nadjiMe );
+} );
+
+
+function nadjiMe() 
+{
+    var lokacija = $( "#lokacija" );
+    lokacija.html( "<p>Lociram te...</p>" );
+
+    navigator.geolocation.getCurrentPosition( function( pos ) 
+    {
+        var sir = pos.coords.latitude;
+        var duz = pos.coords.longitude;
+        lokacija.html( "<p>Zemlj. širina: " + sir + ", dužina: " + duz + "</p>" );
+
+        var openLayerMap = new ol.Map(
+        {
+            target: 'mapa', // id elementa gdje će se nacrtati mapa
+            layers: // koje slojeve ćemo prikazati na mapi
+            [
+                // OpenStreetMap
+                new ol.layer.Tile( { source: new ol.source.OSM() } )
+            ],
+            view: new ol.View(
+            {
+                center: ol.proj.fromLonLat( [duz, sir] ), // zemljopisne koord. centra mape
+                zoom: 15
+            })
+        } );
+    } );
+}    
+    </script>
+</body>
+</html>

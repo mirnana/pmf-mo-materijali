@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <input type="text" id="ulaz">
+    <input type="button" id="dugme" disabled>
+    
+    <script>
+        $(document).ready( function() {
+            let dugme = $("#dugme");
+            dugme.val("Datum nije OK");
+            dugme.css("background-color", "red");
+            let ulaz = $("#ulaz");
+            ulaz.on('input', function() {
+                console.log("klik");
+                tekst = ulaz.val();
+                let re = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[012])\/\d{4}$/;
+                if(re.test(tekst)) {
+                    dugme.val("Datum je OK!");
+                    dugme.css("background-color", "green");
+                }
+                else {
+                    dugme.val("Datum nije OK");
+                    dugme.css("background-color", "red");
+                }
+            });
+        });
+        
+        
+       
+    </script>
+</body>
+
+</html>

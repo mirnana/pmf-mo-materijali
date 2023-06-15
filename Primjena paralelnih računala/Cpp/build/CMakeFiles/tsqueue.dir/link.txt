@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/tsqueue.dir/tsqueue.cpp.o -o tsqueue  -lpthread 

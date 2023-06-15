@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/accum.dir/accum.cpp.o -o accum  -lpthread 

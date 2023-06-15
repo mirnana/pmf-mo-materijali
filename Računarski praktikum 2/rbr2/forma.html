@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+</head>
+
+<body>
+    <h3>Testform</h3>
+
+    <form action="skripta.php" name="Testform">
+        <div>
+            Ime
+            </br>
+            <input type="text" name="name"> </input>
+            </br>
+
+            Sifra
+            </br>
+            
+            <input type="password" name="password"> </input>
+        </div>
+
+        </br>
+
+        Gender
+        </br>
+        <div>
+            <input type="radio" name="gender" value="male">Male</input>
+            </br>
+            <input type="radio" name="gender" value="female">Female</input>
+        </div>
+
+        </br>
+
+        <select name="kontinent">
+            <option value="europa" selected>Europa</option>
+            <option value="azija">Azija</option>
+            <option value="sjevernaam">Sjeverna Amerika</option>
+        </select>
+
+        </br>
+
+        <div>
+            Meal
+            </br>
+            <input type="checkbox" id="breakfast" name="breakfast" checked>
+            <label for="breakfast">breakfast</label>
+
+            </br>
+
+            <input type="checkbox" id="lunch" name="lunch">
+            <label for="lunch">lunch</label>
+
+            </br>
+
+            <input type="checkbox" id="dinner" name="dinner">
+            <label for="dinner">dinner</label>
+        </div>
+
+        </br>
+
+        <div>
+            Remark
+            </br>
+            <textarea name="textarea" rows="10" cols="50"></textarea>
+        </div>
+
+        <input type="submit"></input>
+    </form>
+</body>
+
+</html>

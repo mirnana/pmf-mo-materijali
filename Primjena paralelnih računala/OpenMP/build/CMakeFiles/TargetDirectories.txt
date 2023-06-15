@@ -1,0 +1,16 @@
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/hello_world.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/race.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/sum.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/dot.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/histogram.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/pi.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/mc.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/mat_vec.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/histogram_critical.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/race_atomic.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/tokenizer.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/task_intro.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/list.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/quicksort.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/edit_cache.dir
+/.home/student1/imrovmir/PPR/OpenMP/build/CMakeFiles/rebuild_cache.dir

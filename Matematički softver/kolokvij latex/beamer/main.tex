@@ -1,0 +1,77 @@
+\documentclass[hyperref={colorlinks=true,allcolors=.,urlcolor=red}]{beamer}
+\hypersetup{unicode}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage{tikz}
+\newcommand{\TikZ}{Ti\textit{k}Z}
+
+\usetheme{Bergen}
+\usecolortheme{beetle}
+\setbeamercovered{transparent}
+
+\usepackage{xstring}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage[nodayofweek]{datetime} % čitala sam dokumentaciju za ovo, na linku https://ctan.ijs.si/tex-archive/obsolete/macros/latex/contrib/datetime/datetime.pdf
+% međutim, to producira datum u formatu dan-mjesec-godina, umjesto mjesec-dan-godina
+
+\begin{document}
+
+\title{``All'\!s well that \textbf{ends} well''}
+\author{Mirna Imrović}
+\institute{Department of Mathematics\\ Faculty of Science\\ University of Zagreb}
+\date{\today}
+
+\begin{frame}
+\titlepage
+
+\end{frame}
+
+\begin{frame}{\TikZ}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw [help lines, color=green, dashed] (-1.999,-0.999) grid (4.999,4.999); % relativno prljav način za napraviti grid bez rubova i guess
+    
+    \node[red] (O) at (0,0) [below left]{$O$};
+    \draw[->, red] (0,-0.999) -> (0,4.999);
+    \draw[->, red] (-1.999,0) -> (4.999,0);
+    \node[red] (xmax) at (4.999,0) [above left]{$x$};
+    \node[red] (ymax) at (0,4.999) [below right]{$y$};
+    
+    \node[blue] (S) at (1,2) {$S$};
+    \draw[blue] (S) circle [radius=2];
+    
+    \draw[yellow] (1,-0.15) -- (1,0.15);
+    \node[yellow] at (1,-0.15) [below] {$1$};
+    
+    \draw[yellow] (-0.15,3.73205) -- (0.15,3.73205);
+    \node[yellow] at (-0.15,3.73205) [left] {$2+\sqrt3$};
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Exposition}
+
+\begin{itemize}
+    \item[Ladybug\quad] Marinette Dupain-Ch’\!eng 
+    \item[C\textcolor{red}{h}at Noir\quad] Adrien Agreste
+    \item[Rena Rouge\quad] Ayla C\'esaire
+    \item[\footnote{Thickness = 0.1pt.} \rule{1.9cm}{0.1pt}\quad] 
+    \item[Papillon\quad] Gabriel Agreste
+\end{itemize}
+
+\begin{flushright}
+$\color{white} \mathscr{QED}$
+\end{flushright}
+
+\end{frame}
+
+
+
+\end{document}

@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <title>Primjer 1</title>
+</head>
+<body>
+    <canvas id="cnv" width="500" height="500"></canvas>
+
+    <script>
+        $(document).ready( function() {
+            $("#cnv").on("click", obradi_klik);
+
+            let stari_x = null, stari_y = null;
+
+            function obradi_klik(event) {
+                let cnv = $("#cnv").get(0);
+                let ctx = cnv.getContext("2d");
+                let rect = cnv.getBoundingClientRect();
+                let x = event.clientX - rect.left;
+                let y = event.clientY - rect.top;
+
+                ctx.beginPath();
+                ctx.moveTo(x-5, y-5);
+                ctx.lineTo(x+5, y+5);
+                ctx.moveTo(x+5, y-5);
+                ctx.lineTo(x-5, y+5);
+
+                ctx.stroke();
+
+                if(stari_x === null) {
+                    stari_x = x;
+                    stari_y = y;
+                }
+                else {
+                    ctx.beginPath();
+                    ctx.moveTo(stari_x, stari_y);
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+
+                    stari_x= null;
+                    stari_y = null;
+                }
+            }
+
+
+        });
+    </script>
+</body>
+</html>    

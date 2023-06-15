@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/histogram_critical.dir/histogram_critical.cpp.o -o histogram_critical 

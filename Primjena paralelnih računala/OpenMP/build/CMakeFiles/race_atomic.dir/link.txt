@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/race_atomic.dir/race_atomic.cpp.o -o race_atomic 

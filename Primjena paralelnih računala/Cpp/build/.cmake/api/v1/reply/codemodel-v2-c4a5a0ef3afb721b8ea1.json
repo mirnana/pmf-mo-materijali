@@ -1,0 +1,168 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Cpp_threads",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "account::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-account-Debug-1e4384a3be645ef35e7f.json",
+					"name" : "account",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "accum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-accum-Debug-3f24496f823fd1832b0c.json",
+					"name" : "accum",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "async::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-async-Debug-c8147461c140b190723e.json",
+					"name" : "async",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "compare_exchange::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-compare_exchange-Debug-2adc9bf8d54aba0cefe8.json",
+					"name" : "compare_exchange",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "future::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-future-Debug-bd36a56db0ddf23bc0b1.json",
+					"name" : "future",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "future1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-future1-Debug-0b0ebe10d6ca47c48159.json",
+					"name" : "future1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "future_ali_async::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-future_ali_async-Debug-83dd03919b130854d427.json",
+					"name" : "future_ali_async",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hello::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hello-Debug-f57a002bc3c24c0373ca.json",
+					"name" : "hello",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "packaged_task::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-packaged_task-Debug-984f6da090fda6c28b40.json",
+					"name" : "packaged_task",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sinhro::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sinhro-Debug-4d7d2c873f1774e95f31.json",
+					"name" : "sinhro",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stack-Debug-8519eb9039542e0f8e42.json",
+					"name" : "stack",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-f1fd92eb1b65647f825c.json",
+					"name" : "test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tsqueue::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tsqueue-Debug-f31ea31ee873c8d95553.json",
+					"name" : "tsqueue",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/.home/student1/imrovmir/PPR/Cpp/build",
+		"source" : "/.home/student1/imrovmir/PPR/Cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/hello_world.dir/hello_world.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/hello_world.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/hello_world.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/race.dir/race.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/race.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/race.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/sum.dir/sum.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/sum.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/sum.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/dot.dir/dot.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/dot.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/dot.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/histogram.dir/histogram.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/histogram.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/histogram.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/pi.dir/pi.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/pi.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/pi.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/mc.dir/mc.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/mc.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/mc.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/mat_vec.dir/mat_vec.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/mat_vec.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/mat_vec.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/histogram_critical.dir/histogram_critical.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/histogram_critical.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/histogram_critical.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/race_atomic.dir/race_atomic.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/race_atomic.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/race_atomic.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/tokenizer.dir/tokenizer.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/tokenizer.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/tokenizer.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/task_intro.dir/task_intro.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/task_intro.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/task_intro.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/list.dir/list.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/list.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/list.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/OpenMP/build",
+  "command": "/usr/bin/g++   -g -fopenmp -Wall --std=c++17 -o CMakeFiles/quicksort.dir/quicksort.cpp.o -c /.home/student1/imrovmir/PPR/OpenMP/quicksort.cpp",
+  "file": "/.home/student1/imrovmir/PPR/OpenMP/quicksort.cpp"
+}
+]

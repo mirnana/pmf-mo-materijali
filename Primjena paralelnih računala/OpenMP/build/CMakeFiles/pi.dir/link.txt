@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/pi.dir/pi.cpp.o -o pi 

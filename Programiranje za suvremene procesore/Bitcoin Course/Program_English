@@ -1,0 +1,55 @@
+***Programiranje za suvremene procese***
+
+# Disclaimer: (sljedeći paragraf služi samo za prodati program pod nazivom kolegija; sam blockchain je poprilično trivijalan pojam, i zapravo se radi o vrlo jednostavnoj strukturi podataka; kada se blockchain koristi kao buzzword, zapravo se priča o distribuiranom sistemu koji funkcionira zahvaljujući mehanizmu koncensusa, i nekoliko vrlo jednostavnih kriptografskih primitiva)
+
+##Context: In recent years we have witnessed a meteoric rise of cryptocurrencies, both as a financial asset, and as a new technology. The vast majority of cryptocurrencies are based on the blockchain infrastructure, which is utilized in order to provide security of the underlying financial application. In order to do this, blockchains deploy a novel distributed consensus mechanism, which, in addition to allowing to run a monetary system, allows for all sorts of scripts which are run and validated by the entire network of participating nodes.
+
+##Content: The course will focus primarily on the most popular cryptocurrency in existence, Bitcoin. We will begin by explaining how Bitcoin functions on a technological level. In order to do this, we will explain Bitcoin's transaction logic, cryptographic guarantees, and data structures utilized in order for this cryptocurrency work. A lot of attention will be put on explaining the distributed consensus algorithm which both makes Bitcoin function, and which makes it secure. In parallel with this, we will also develop a simple zero to hero implementation of a light Bitcoin client. This will require us to implement the elliptic curve algorithm needed to sign Bitcoin transactions, serialize and deserialize Bitcoin's network data, run Bitcoins Scripting language, and much more. Finally, we will dwell into the details of how Ethereum, another mainstream cryptocurrency works, and how it allows us to handle a Turing complete scripting language via a clever use of resource fees. All of the implementations will be carried out in Python. No previous Python experience is necessary as long as you know to use at least one programming language.
+
+##Learning Outcomes:
+By taking this course, the students will be able to understand the technological basics of most modern cryptocurrencies. In particular, the student will be able to:
+- Understand how Bitcoin and Ethereum work on a transaction level.
+- Understand how the distributed consensus makes Bitcoin's blockchain secure.
+- Implement the elliptic curve algorithm for signing serialized data, and verifying the validity of digital signatures.
+- Parse the raw data received from the Bitcoin network.
+- Convert a logical representation of a Bitcoin transaction into raw data accepted by the Bitcoin network.
+- Transmit raw transaction onto the testnet network and see them recorded on the blockchain.
+- Implement a simple SPV client which can act as a wallet.
+
+##Detailed program:
+W1 Introduction. What is money? Problems a digital currency must solve.
+W2 Hashing and blockchain. We explain how mining works and what makes it difficult. We also explain and implement blockchain as a data structure.
+W3 Merkle trees. Implementation of validation and certificate generation.
+W4 Bitcoin's transaction mechanism. Scroogecoin. The concept of UTXO.
+W5 Distributed consensus which makes Bitcoin work. By this point, we will understand the high level functionality of modern cryptocurrencies.
+W6 Digital signatures and Bitcoin addresses. Elliptic curve cryptography 1 (we start implementing finite fields,...)
+W7 ECC2 (finish the implementation details; we can now sign and verify signatures).
+W8 Going in deep: how do Bitcoin transactions really work. Script.
+W9 How do we implement Bitcoin transactions. Serializing and deserializing data.
+W10 Smart contracts.
+W11 Bitcoin's network. Bloom filters**(as these are not used much anymore I might learn the new thing they have in the protocol).
+W12 Ethereum basics. Merkle Patricia trees and Ethereum Virtual Machine.
+
+##Specific activities to develop during classes/labs:
+A1: Given a hash function implement various mining strategies, explain mining pools and difficulty adjustment
+A2: Implement a basic blockchain (as a data structure). Validate for changes.
+A3: Implement Scrooge coin. Implement a UTXO pool.
+A4: Serialize Bitcoin transactions. Classes Tx, TxIn, TxOut, parsing
+A5: Parsing of Script (p2pk, p2pkh). Validating and constructing transactions.
+A6: Implement network communication, Bloom filters. Do an initial block download.
+
+##Homework assignments:
+HW1: Implement Merkle trees (construction, build existence certificates, validate a certificate).
+HW2: Implement ECC, students receive classes FiniteField, SHA256, etc. Obtain testcoins in an address you control.
+HW3: Implement outstanding transaction pool for ScroogeCoin, and see how it interacts with the UTXO pool.
+HW4: Spend your testcoins: Create a transactions and push it onto the network from a Web API. Confirm that it was accepted in a block explorer.
+HW5: Create an SPV node. Validate a few transactions. 
+
+## Literature:
+1. Arvind Narayanan, Joseph Bonneau, Edward Felten, Andrew Miller, Steven Goldfeder
+Bitcoin and Cryptocurrency Technologies, Princeton University Press, 2016 
+(pdf https://bitcoinbook.cs.princeton.edu/)
+2. Jimmy Song, Programming Bitcoin, OpenSource
+https://github.com/jimmysong/programmingbitcoin
+3. Bitcoin Wiki, https://en.bitcoin.it/wiki/Main_Page
+4. Bitcoin BIPs, https://github.com/bitcoin/bips

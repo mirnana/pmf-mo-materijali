@@ -1,0 +1,87 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <title>Primjer 1</title>
+</head>
+<body>
+    
+    <input type="text" id="ulaz">
+    <button id="dodaj">Dodaj posao</button>
+    <br>
+    <div id="poslovi"></div>
+    <button id="obrisi">Obrisi poslove</button>
+
+    <script>
+$(document).ready(function() {
+    btn = $("#dodaj");
+    btn.on("click", dodaj);
+
+    let broj_poslova = ispisi_poslove();
+
+    $("#poslovi").on("change", "input", obavi_posao); // svi inputi unutar diva reagiraju na događaj change i tada pozivaju obavi_posao
+
+    function obavi_posao() {
+        let c = $(this);
+        let span = c.parent();
+        let id_posla = span.prop("id");
+
+        let obavljen = c.prop("checked");
+        if(obavljen) 
+            localStorage.setItem(id_posla + "_obavljen", '1');
+        else 
+            localStorage.setItem(id_posla + "_obavljen", '0');
+
+        broj_poslova = ispisi_poslove();
+        console.log("asdf jere");
+    }
+
+    function ispisi_poslove() {
+        let broj_poslova = 0;
+
+        let div = $("#poslovi");
+        div.html("");
+
+        while(true) {
+            let ime_posla = localStorage.getItem("posao_" + broj_poslova);
+            if(ime_posla === null) break;
+
+            let obavljen = localStorage.getItem("posao_" + broj_poslova + "_obavljen");
+
+
+
+            let span = $("<span>").prop("id", "posao_" + broj_poslova);
+            let checkbox = $("<input type='checkbox'>");
+            
+            if(obavljen === '1') {
+                checkbox.prop("checked", true);
+                span.css("text-decoration", "line-through");
+            }
+            else {
+                checkbox.prop("checked", false);
+            }
+            
+            span.append(checkbox).append(ime_posla).append("</span>");
+            div.append(span).append("<br>");
+            
+
+            ++broj_poslova;
+        }
+
+        return broj_poslova;
+    }
+
+    function dodaj() {
+        tekst = $("#ulaz");
+        let posao = tekst.val();
+
+        let id_posla = "posao_" + broj_poslova;
+        localStorage.setItem(id_posla, posao);
+        localStorage.setItem(id_posla + "_obavljen", '0');
+        broj_poslova = ispisi_poslove();
+    }
+
+});
+    </script>
+</body>
+</html>    

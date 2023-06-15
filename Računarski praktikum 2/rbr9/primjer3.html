@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <p id="p"></p>
+
+    <script>
+        function updateClock() 
+        {
+            var d = new Date();
+
+            // Kao sadržaj elementa #p upiši trenutno vrijeme.
+            $( "#p" ).html( d.toLocaleTimeString() );
+        }
+
+        // Svakih 1000 milisekundi pozovi fju updateClock
+        setInterval( updateClock, 1000 ); 
+    </script>
+
+</body>
+</html>    

@@ -1,0 +1,69 @@
+\documentclass[10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[croatian]{babel}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+\usepackage[unicode]{hyperref}
+
+
+\usepackage{thmtools}
+\declaretheorem{teorem}
+\declaretheorem[sibling=teorem]{hipoteza}
+\declaretheorem[style=definition,sibling=teorem, name=Pokušaj rješenja]{pokusaj}
+
+\usepackage{xstring}
+\usepackage{mathtools}
+
+\begin{document}
+\pagenumbering{gobble} 
+
+
+\renewcommand{\today}{\the\day. \MakeUppercase{\romannumeral\month}. '\StrGobbleLeft{\the\year}{2}.} % izvor: kolegica Kristina Mikulec mi je objasnila kako ovo napraviti *prije kolokvija*
+\title{Matematički softver}
+\subtitle{drugi kolokvij}
+\date{Praktikum 2, \today}
+\author{Mirna Imrović}
+
+\maketitle
+
+\begin{tabular}[width=\textwidth]{r @{:\ } p{0.8\textwidth}}
+    \underline{Prvi zadatak} & 
+    P\'al Erd\H{o}s (1913.--1996.) rođen je u Austro-Ugarskoj, a umro u Warszawi, u Poljskoj. Volio je problem Stanis\l{}awa Ulama o funkciji
+    $c(x) := 
+    \begin{cases}  
+    \dfrac{x}{2}, & x\text{ paran}\\
+    3\cdot x+1, & \text{ inače}
+    \end{cases}.$ 
+    \bigskip\\
+    \underline{Drugi zadatak} & 
+    \begin{hipoteza}
+    Za sve $t\in\mathbb N$ postoji $\ell\in\mathbb N$ tako da je $c^\ell(t)= \underbrace{c\big(c(\cdots c}_{\ell\text{ poziva}}(t)\cdots )\big)=1$.
+    \end{hipoteza}
+    
+    \begin{pokusaj}
+     Možda je $\limsup\limits_n\dfrac{\min k}{n}=+\infty$.
+    \end{pokusaj}
+    
+    Ovo se čini malo lakšim za dokazati od hipoteze 1.
+    \bigskip\\
+    
+    \underline{Treći zadatak} &
+    \[
+    \mathcal B = 
+    \left\{B_\alpha\in\mathcal T \mid (\forall\;U \in \mathcal T)\ \exists (B_\beta)_\beta 
+    \left(U=\bigcup\nolimits_\beta B_\beta\right)
+    \right\}
+    \]
+    
+    \begin{equation}
+        \begin{aligned}
+            A\subset B\setminus C
+            &\not\Rightarrow A\cup C \subseteq B\\
+            & \xRightarrow[]{\text{za vježbu}} A\cap C = \emptyset % https://tex.stackexchange.com/questions/85113/xrightarrow-text
+        \end{aligned} \tag{$\ast$}
+    \end{equation}
+\end{tabular}
+
+
+\end{document}

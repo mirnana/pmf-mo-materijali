@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+</head>
+
+<body>
+
+    <script>
+        
+        let ulaz = prompt("Unesi datum");
+        let reg = /^(0[1-9])|([10-31])\/(0[1-9])|([10-12])\/\d{4}$/;
+        while(!reg.test(ulaz)) {
+            ulaz = prompt("Unesi datum");
+        }
+
+        let rez = reg.exec(ulaz);
+        let dan = rez[1];
+        let mjesec = rez[2];
+        let godina = rez[3];
+
+        let datum = new Date(godina, mjesec - 1, dan);
+        let dan_u_tjednu = datum.getDay();
+        let nazivi_dana = ['ned', 'pon', 'uto', 'sri', 'čet', 'pet', 'sub'];
+        document.write(str + " je " + nazivi_dana[dan_u_tjednu]);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/task_intro.dir/task_intro.cpp.o -o task_intro 

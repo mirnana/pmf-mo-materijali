@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <input type="text" id="prvi_br">
+    <input type="text" id="drugi_br">
+    <button type="submit" name="plus" id="plus">+</button>
+    <button type="submit" name="minus" id="minus">-</button>
+    <button type="submit" name="puta" id="puta">*</button>
+    <button type="submit" name="kroz" id="kroz">/</button>
+    <input type="text" id="rezultat">
+
+    <script>
+        function handler(f) {
+            let x = parseInt($("#prvi_br").val());
+            let y = parseInt($("#drugi_br").val());
+            let rezultat = $("#rezultat");
+            rezultat.val(f(x, y));
+        }
+
+        $("#plus").on("click", function () { handler(function (x, y) { return x + y }) });
+        $("#minus").on("click", function () { handler(function (x, y) { return x - y }) });
+        $("#puta").on("click", function () { handler(function (x, y) { return x * y }) });
+        $("#kroz").on("click", function () { handler(function (x, y) { return x / y }) });
+    </script>
+</body>
+
+</html>

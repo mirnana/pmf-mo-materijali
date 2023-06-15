@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Zadatak 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <canvas width="600" height="300" id="canvas"></canvas>
+
+    <script>    
+$( document ).ready( crtaj );
+
+function crtaj() 
+{
+    var ctx = $( "#canvas" ).get(0).getContext( "2d" );
+    ctx.strokeStyle = "black";
+    ctx.translate( 300, 300 ); 
+
+    function rek( dubina ) 
+    {
+        if( dubina > 0 ) 
+        {
+            // Zapamtimo trenutnu matricu transformacije.
+            ctx.save();
+
+            // Nacrtamo deblo aktualnog stabla.
+            ctx.beginPath();
+            ctx.moveTo( 0, 0 );
+
+            ctx.lineTo( 0, -dubina*10 );
+            ctx.stroke();
+
+            ctx.translate( 0, -dubina*10 );
+
+            // Zarotiraj ulijevo za random kut između PI/8 i PI/3
+            var kutLijevo = Math.PI/8 + (Math.PI/3 - Math.PI/8) * Math.random();
+            ctx.rotate( -kutLijevo );
+
+            // Nacrtaj tu rekurzivno novo stablo.
+            rek( dubina-1 );
+
+            // Vrati se natrag u "normalni" smjer
+            // i zarotiraj udesno za random kut između PI/8 i PI/3
+            var kutDesno = Math.PI/8 + (Math.PI/3 - Math.PI/8) * Math.random();
+            ctx.rotate( kutLijevo + kutDesno );
+
+            // Nacrtaj tu rekurzivno novo stablo.
+            rek( dubina-1 );        
+
+            // Nakon povratka iz rekurzije vratimo originalnu matricu transformacije.
+            // (Alternativno, možemo zarotirati nazad za kut -kutDesno, i onda
+            // translatirati za (0, dubina*10) da se manualno vratimo u stanje prije
+            // transformacije koord. sustava).
+            ctx.restore();
+        }
+    }
+
+    rek( 7 );
+}
+
+    </script>
+</body>
+</html>

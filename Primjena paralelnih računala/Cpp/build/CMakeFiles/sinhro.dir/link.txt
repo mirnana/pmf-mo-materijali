@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/sinhro.dir/sinhro.cpp.o -o sinhro  -lpthread 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 
+        Google Maps sada zahtjeva registraciju i kreditnu karticu (iako je i dalje besplatan ako je broj prikazivanja mape malen).
+        Svaki poziv Google Maps API sada zahtijeva da proslijedimo registracijski ključ.
+        Zbog toga ovaj primjer više nije funkcionalan. 
+        U "01 - Geolocation - OpenLayers.html" je pokazana besplatna alternativa.
+    -->
+    <meta charset="utf8" />
+    <title>Primjer 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <p><button id="btn">Gdje sam?</button></p>
+    <div id="mapa"></div>
+
+    <script>    
+$( document ).ready( function() 
+{
+    $( "#btn" ).on( "click", nadjiMe );
+} );
+
+
+function nadjiMe() 
+{
+    var mapa = $( "#mapa" );
+
+    mapa.html( "<p>Lociram te...</p>" );
+
+    navigator.geolocation.getCurrentPosition( function( pos ) 
+    {
+        var sir = pos.coords.latitude;
+        var duz = pos.coords.longitude;
+        mapa.html( "<p>Zemlj. širina: " + sir + ", dužina: " + duz + "</p>" );
+
+        var img = new Image();
+        img.src = "https://maps.googleapis.com/maps/api/"
+                  + "staticmap?center=" + sir + "," + duz
+                  + "&zoom=13&size=500x500&sensor=false"
+                  + "&markers=" + sir +  "," + duz;
+        mapa.append( img );
+    } );
+}    
+    </script>
+</body>
+</html>

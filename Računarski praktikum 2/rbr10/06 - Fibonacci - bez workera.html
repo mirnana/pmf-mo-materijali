@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 6 - Fibonacci bez workera</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">1</button>
+
+    <script>
+function fibo( n ) 
+{
+    if( n < 2 ) 
+        return n;
+    else
+        return fibo( n-1 ) + fibo( n-2 );
+}
+
+$(document).ready( function() 
+{
+    // "Dokaz" da stranica (ni)je živa dok se računa -- button neće reagirati na klik.
+    $( "#btn" )
+        .on( "click", function() 
+        { 
+            var val = Number( $( this ).html() );
+            $( this ).html( val+1 );
+        } );
+
+
+    // Napravi 42 nova spana i dodaj ih u body.
+    // U i-tom spanu piše i-ti Fibonaccijev broj izračunat rekurzivno.
+    for( var i = 0; i < 42; ++i ) 
+    {
+        var span = $( "<span></span>" );
+        span.html( "" + fibo( i ) + " " );
+        $( "body ").append( span );
+    }
+} );
+
+    </script>
+</body>
+</html>

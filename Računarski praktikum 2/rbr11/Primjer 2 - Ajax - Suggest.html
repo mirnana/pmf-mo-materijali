@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Primjer 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    Unesi svoje ime: <input type="text" list="datalist_imena" id="txt_ime">
+    <datalist id="datalist_imena"></datalist>
+
+    <script>
+$( document ).ready( function()
+{
+    var txt = $( "#txt_ime" );
+
+    // Kad netko nešto tipka u text-box:
+    txt.on( "input", function(e)
+    {
+        var unos = $( this ).val(); // this = HTML element input, $(this) = jQuery objekt
+
+        // Napravi Ajax poziv sa GET i dobij sva imena koja sadrže s kao podstring
+        $.ajax(
+        {
+            url: "Primjer 2 - Ajax - Suggest.php",
+            data:
+            {
+                q: unos
+            },
+            success: function( data )
+            {
+                // Jednostavno sve što dobiješ od servera stavi u dataset.
+                $( "#datalist_imena" ).html( data );
+            },
+            error: function( xhr, status )
+            {
+                if( status !== null )
+                    console.log( "Greška prilikom Ajax poziva: " + status );
+            }
+        } );
+    } );
+} );
+
+    </script>
+</body>
+</html>

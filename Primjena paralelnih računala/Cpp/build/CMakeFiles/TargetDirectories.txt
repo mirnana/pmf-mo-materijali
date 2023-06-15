@@ -1,0 +1,15 @@
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/hello.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/test.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/accum.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/account.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/stack.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/sinhro.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/tsqueue.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/future.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/future1.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/packaged_task.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/async.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/future_ali_async.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/compare_exchange.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/edit_cache.dir
+/.home/student1/imrovmir/PPR/Cpp/build/CMakeFiles/rebuild_cache.dir

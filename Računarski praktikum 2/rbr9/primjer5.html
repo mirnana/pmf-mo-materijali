@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+
+<div id="div"></div>
+
+<script>
+$(document).ready( function() {
+    $( "#div" )
+        .css( "background-color", "blue" )
+        .css( "height", "100px" )
+        .css( "width", "100px" )
+        .css( "position", "absolute" )
+        .on( "mousemove", function(event) 
+            {
+                $(this)
+                    .css( "left", event.clientX - 50 )
+                    .css( "top",  event.clientY - 50 );
+            } );
+
+    $( "body" )
+        .on( "keydown", function(event) 
+            {
+                if( event.key === "r" ) // pritisnuta tipka "r"
+                    $( "#div" ).css( "background-color", "red" );
+                else // pritisnuta neka druga tipka
+                    $( "#div" ).css( "background-color", "green" );
+            } );
+
+    $( "body" )
+        .on( "keyup", function(event) 
+            {
+                $( "#div" ).css( "background-color", "blue" );
+            } );
+} );
+
+</script>
+</body>
+</html>    

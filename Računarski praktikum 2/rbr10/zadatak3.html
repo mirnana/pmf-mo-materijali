@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Zadatak 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <input type="text" id="txt" /><button id="btn_novi">Dodaj novi posao</button>
+    <div id="div_todo"></div>
+    <button id="btn_brisi">Obriši sve s liste</button>
+
+    <script>    
+$( document ).ready( function()
+{
+    // Učitaj listu svih poslova i prikaži ju.
+    var n = dohvati_listu();
+
+    // Što kad netko klikne na gumb "Dodaj novi posao".
+    $( "#btn_novi" ).on( "click", function()
+    {
+        // Pogledaj što piše u txt, ignoriraj ako je prazno
+        var txt = $( "#txt" ).val();
+
+        if( txt === "" )
+            return;
+        else
+        {
+            // Ako ima nešto, to dodaj na kraj liste u localStorage
+            // Možemo izbjeći ovako bezvezno čuvanje popisa sa JSON.stringify(), ali o tome na idućem predavanju :)
+            // Uoči: n je varijabla deklarirana izvan ove callback funkcije -> koristimo closure.
+            // Istu varijablu n koristi i callback za klik na #btn_brisi.
+            ++n;
+
+            localStorage.setItem( "todo_" + n, txt );
+            localStorage.setItem( "todo_" + n + "_done", "0" );
+            dohvati_listu();
+        }
+    } );
+
+
+    // Što kad netko klikne na gumb "Obriši sve poslove".
+    $( "#btn_brisi" ).on( "click", function()
+    {
+        // Obriši cijeli localStorage
+        localStorage.clear();
+        n = dohvati_listu();
+    } );
+
+
+    // Što kad netko stavi kvačicu na određeni posao
+    $( "body" ).on( "click", "input.chk", obavi_posao );
+
+} );
+
+
+dohvati_listu = function() 
+{
+    // Dohvati i prikaži listu poslova iz localStorage-a.
+    // Imena poslova su spremljena u todo_1, todo_2, ...
+    // Je li posao obavljen je spremljeno u todo_1_done, todo_2_done, ...
+    var n = 1;
+
+    // Obriši sve iz div-a.
+    $( "#div_todo" ).html( "" );
+
+    while( true )
+    {
+        var job = localStorage.getItem( "todo_" + n );
+        
+        // Ako nema posla s tom oznakom, našli smo ih sve
+        if( job === null )
+            return n-1;
+
+        // Inače, dodaj novi checkbox za taj posao
+        var isDone = localStorage.getItem( "todo_" + n + "_done" );
+
+        var chk = $( '<input type="checkbox" class="chk" id="todo_' + n + '" />' );
+        var name = $( '<span id="span_' + n + '">' + job + "</span>" );
+
+        if( isDone === "1" )
+        {
+            chk.prop( "checked", "checked" );
+            name.css( "text-decoration", "line-through" );
+        }
+
+        // Dodaj to na kraj div-a u dokumentu.
+        $( "#div_todo" )
+            .append( chk )
+            .append( name )
+            .append( $( "<br />") );
+
+        ++n;
+    }
+}
+
+
+obavi_posao = function()
+{
+    // Dohvati id checkboxa na kojeg je kliknuto.
+    var chk = $( this ), job = chk.prop( "id" );
+
+    console.log( chk.prop( "checked" ) );
+
+    // Pogledaj jel taj posao sad obavljen ili ne.
+    if( chk.prop( "checked" ) === true )
+    {
+        // Postavljena je kvačica, dakle, sad je posao obavljen.
+        // Spremi to u localStorage.
+        localStorage.setItem( job + "_done", "1" );
+    }
+    else
+    {
+        // Nema kvačice, dakle, posao nije obavljen.
+        // Spremi to u localStorage.
+        localStorage.setItem( job + "_done", "0" );
+    }
+
+    // Nacrtaj ponovno cijelu listu (moglo bi ovo i bez dohvaćanja svega...).
+    dohvati_listu();
+}
+
+    </script>
+</body>
+</html>

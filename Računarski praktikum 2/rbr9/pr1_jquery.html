@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="utf8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <title>Primjer 1</title>
+</head>
+<body>
+    <ul class = "zivotinja">
+        <li>Pas</li>
+        <li>Mačka</li>
+        <li class="velika">Konj</li>
+        <li class="velika">Žirafa</li>
+    </ul>
+    <ul class="povrce">
+        <li>Mrkva</li>
+        <li>Kupus</li>
+    </ul>
+    <ul class = "zivotinja">
+        <li class="velika">Slon</li>
+        <li>Mrav</li>
+    </ul>
+
+    <script>
+        var uls = $( "ul.zivotinja" );
+
+        // bolje ovako: var lis = $( "ul.zivotinja li" );
+        // (i prilagoditi forove)
+
+        var brojZivotinja = 0;
+        let novi_ul = $("<ul></ul>");
+
+        for(var i = 0; i < uls.length; ++i) {
+            var ul = uls.eq(i);
+            let lis = ul.children();
+
+            brojZivotinja += ul.children.length;
+
+            for(var j = 0; j < lis.length; ++j) {
+                var zivotinja = lis.eq(j);
+                console.log( "Hello, " + zivotinja.innerHTML );
+
+                if( zivotinja.hasClass("velika")) zivotinja.css('font-size', '24px');
+                
+                let novi_li = $("<li></li>");
+                let ime_zivotinje = zivotinja.html();
+                novi_li.html(ime_zivotinje);
+                novi_ul.append(novi_li);
+                zivotinja.html(ime_zivotinje + '!');
+            }
+        }
+        console.log( "Ukupno ima " + brojZivotinja + " životinja." );
+        $('body')
+            .append("<p>Sve životinje u jednoj listi:</p>")
+            .append(novi_ul);
+    </script>
+</body>
+</html>    

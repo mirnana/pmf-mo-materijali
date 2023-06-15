@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8" />
+    <title>Primjer 6 - Fibonacci sa workerom</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">1</button>
+
+    <script>
+$(document).ready( function() 
+{
+    // "Dokaz" da je stranica živa dok se računa -- button će reagirati na klik.
+    $( "#btn" )
+        .on( "click", function() 
+        { 
+            var val = Number( $( this ).html() );
+            $( this ).html( val+1 );
+        } );
+
+    // Napravi novog workera koji će u pozadini računati Fibonaccijeve brojeve.
+    var worker = new Worker( "06 - Fibonacci.js" ), n = 0;
+
+    // Kad dobijemo poruku od workera -- to znači da je gotov s računanjem.
+    // Dodamo u dokument novi span s izračunatim Fibo. brojem.
+    worker.onmessage = function( e ) 
+    {
+        var span = $( "<span></span>" );
+        span.html( e.data + " " );
+        $( "body ").append( span );
+
+        // Pokrenemo u workeru računanje idućeg Fibo. broja.
+        if( n < 50 )
+            worker.postMessage( ++n );
+    }
+
+    // Pošaljemo prvu poruku workeru, da izračuna za n=0.
+    worker.postMessage( n );
+} );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/hello.dir/hello.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/hello.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/hello.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/test.dir/test.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/test.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/test.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/accum.dir/accum.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/accum.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/accum.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/account.dir/account_main.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/account_main.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/account_main.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/account.dir/account.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/account.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/account.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/stack.dir/stack.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/stack.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/stack.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/sinhro.dir/sinhro.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/sinhro.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/sinhro.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/tsqueue.dir/tsqueue.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/tsqueue.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/tsqueue.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/future.dir/future.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/future.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/future.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/future1.dir/future1.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/future1.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/future1.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/packaged_task.dir/packaged_task.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/packaged_task.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/packaged_task.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/async.dir/async.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/async.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/async.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/future_ali_async.dir/future_ali_async.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/future_ali_async.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/future_ali_async.cpp"
+},
+{
+  "directory": "/.home/student1/imrovmir/PPR/Cpp/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/compare_exchange.dir/compare_exchange.cpp.o -c /.home/student1/imrovmir/PPR/Cpp/compare_exchange.cpp",
+  "file": "/.home/student1/imrovmir/PPR/Cpp/compare_exchange.cpp"
+}
+]

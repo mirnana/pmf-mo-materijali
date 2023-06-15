@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/future_ali_async.dir/future_ali_async.cpp.o -o future_ali_async  -lpthread 

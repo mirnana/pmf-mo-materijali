@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -fopenmp CMakeFiles/mat_vec.dir/mat_vec.cpp.o -o mat_vec 

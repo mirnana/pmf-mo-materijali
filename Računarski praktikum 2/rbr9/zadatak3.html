@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <img src="juha.jpg" id="slika">
+
+    <script>
+        $(window).on('load', function() {
+            let img = $('#slika');
+            let orig_w=img.width();
+            let orig_h = img.height();
+            let smjer = 'povecaj';
+
+            setInterval(crtaj, 10);
+
+            function crtaj(){
+                let tren_w = img.width();
+                let tren_h = img.height();
+
+                if(smjer == 'povecaj'){
+                    ++tren_h;
+                    ++tren_w;
+                }
+                else {
+                    --tren_h;
+                    --tren_w;
+                }
+
+                img.width(tren_w);
+                img.height(tren_h);
+
+                if(tren_w >= 2 * orig_w) smjer = 'smanji';
+                else if (tren_w <= orig_w) smjer = 'povecaj';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
