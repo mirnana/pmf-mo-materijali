@@ -1,0 +1,24 @@
+SIMULACIJE ZA calc_force1 :
+
+$ OMP_NUM_THREADS=4 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 4.14205
+
+$ OMP_NUM_THREADS=8 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 2.08371
+
+$ OMP_NUM_THREADS=16 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 1.06253
+
+---------------------------------------------------------
+
+SIMULACIJE ZA calc_force2 :
+
+$ OMP_NUM_THREADS=4 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 3.30182
+
+$ OMP_NUM_THREADS=8 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 1.66844
+
+$ OMP_NUM_THREADS=16 ./a.out
+Prosječno vrijeme izvršavanja u 10 simulacija: 0.856144
+

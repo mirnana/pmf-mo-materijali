@@ -1,0 +1,7 @@
+neoptimizirana verzija:
+Prosječno vrijeme u 16 izvršavanja: 0.121625
+
+verzija s korištenjem konstantne memorije:
+Prosječno vrijeme u 16 izvršavanja: 0.097188
+
+Implementacija blok-algoritma mi nije uspjela. 
